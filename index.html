@@ -1,213 +1,40 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>南台灣美食全書 - 歷史與烹飪指南</title>
+    <title>餐飲美食百科 - 首頁</title>
     <style>
-        :root {
-            --primary-color: #a0522d;
-            --secondary-color: #f4a460;
-            --bg-color: #fffaf0;
-            --tab-bg: #e9e4d4;
-        }
-        body { font-family: '微軟正黑體', sans-serif; background-color: var(--bg-color); color: #333; line-height: 1.8; margin: 0; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        header { background-color: var(--primary-color); color: white; text-align: center; padding: 20px; }
-        
-        /* 分頁標籤樣式 */
-        .tab-menu { display: flex; background-color: var(--tab-bg); border-bottom: 2px solid var(--secondary-color); overflow-x: auto; }
-        .tab-link { padding: 15px 25px; border: none; background: none; cursor: pointer; font-size: 1.1em; font-weight: bold; color: #555; transition: 0.3s; white-space: nowrap; }
-        .tab-link:hover { background-color: #dcd7c9; }
-        .tab-link.active { background-color: var(--secondary-color); color: white; }
-
-        /* 分頁內容樣式 */
-        .tab-content { display: none; padding: 40px; animation: fadeIn 0.5s ease; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .food-header { display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-        .food-header img { width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 5px 5px 15px rgba(0,0,0,0.1); }
-        .food-info { flex: 1; min-width: 300px; }
-        
-        h2 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 5px; }
-        h3 { color: #8b4513; margin-top: 25px; display: flex; align-items: center; }
-        h3::before { content: "◈"; margin-right: 10px; color: var(--secondary-color); }
-        
-        .section-box { background: #fdf5e6; padding: 20px; border-left: 5px solid var(--secondary-color); border-radius: 0 10px 10px 0; margin-bottom: 20px; }
-        ul, ol { padding-left: 20px; }
-        li { margin-bottom: 10px; }
+        body { font-family: "PingFang TC", sans-serif; background: #f4f4f4; margin: 0; padding: 20px; text-align: center; }
+        h1 { color: #2c3e50; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; text-decoration: none; color: inherit; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card h2 { font-size: 1.2rem; padding: 15px; margin: 0; background: #fff; }
+        .reflection-link { display: block; margin-top: 50px; color: #e67e22; font-weight: bold; text-decoration: none; font-size: 1.2rem; }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <header>
-        <h1>🍽️ 南台灣在地美食全書</h1>
-        <p>探尋臺南、高雄、屏東的味蕾記憶</p>
-    </header>
-
-    <div class="tab-menu">
-        <button class="tab-link active" onclick="openFood(event, 'food1')">臺南牛肉湯</button>
-        <button class="tab-link" onclick="openFood(event, 'food2')">旗津海產</button>
-        <button class="tab-link" onclick="openFood(event, 'food3')">虱目魚料理</button>
-        <button class="tab-link" onclick="openFood(event, 'food4')">萬巒豬腳</button>
-        <button class="tab-link" onclick="openFood(event, 'food5')">南部肉圓</button>
+    <h1>🍴 餐飲美食深度導覽</h1>
+    <div class="grid">
+        <a href="coffee.html" class="card">
+            <img src="001.png" alt="精品咖啡">
+            <h2>1. 精品咖啡與法式甜點</h2>
+        </a>
+        <a href="japanese.html" class="card">
+            <img src="002.png" alt="日式料理">
+            <h2>2. 日式職人料理 (Kaiseki)</h2>
+        </a>
+        <a href="street.html" class="card">
+            <img src="003.png" alt="街頭小吃">
+            <h2>3. 在地街頭特色小吃</h2>
+        </a>
+        <a href="vegan.html" class="card">
+            <img src="004.png" alt="永續蔬食">
+            <h2>4. 未來植感永續蔬食</h2>
+        </a>
     </div>
-
-    <div id="food1" class="tab-content active">
-        <div class="food-header">
-            <img src="001.jpg" alt="臺南牛肉湯">
-            <div class="food-info">
-                <h2>臺南：溫體牛肉湯</h2>
-                <div class="section-box">
-                    <strong>歷史故事：</strong>
-                    臺南牛肉湯的起源與當地的地理環境息息相關。臺南善化擁有全台最大的牛肉屠宰場，清晨剛處理好的「溫體牛」能以最短時間送達市區店面。早期這是給體力勞動者（如農夫、搬運工）補足體力的精華早餐，演變至今成為臺南最具代表性的飲食標籤。
-                </div>
-            </div>
-        </div>
-        <h3>需要材料</h3>
-        <ul>
-            <li><strong>主要食材：</strong> 當日現宰牛腿肉或肩胛肉片。</li>
-            <li><strong>高湯底：</strong> 牛大骨、洋蔥、蘋果、玉米、薑片。</li>
-            <li><strong>沾醬：</strong> 薑絲、甜醬油膏、豆瓣醬。</li>
-        </ul>
-        <h3>料理方法</h3>
-        <ol>
-            <li>將牛大骨與蔬果放入大鍋中，以小火熬煮至少 6 小時，濾出清澈高湯。</li>
-            <li>將溫體牛肉順著紋路切成極薄片，平舖於碗底。</li>
-            <li>將滾燙的高湯（約 95°C）直接沖入碗中，利用餘溫將牛肉燙至 3-5 分熟的粉紅色。</li>
-            <li>不需攪拌，直接搭配薑絲食用，最能品嚐肉質的鮮甜。</li>
-        </ol>
-    </div>
-
-    <div id="food2" class="tab-content">
-        <div class="food-header">
-            <img src="002.jpg" alt="旗津海產">
-            <div class="food-info">
-                <h2>高雄：旗津活海產</h2>
-                <div class="section-box">
-                    <strong>歷史故事：</strong>
-                    旗津是高雄港的發祥地，昔日是一座與陸地相連的沙洲。由於緊鄰漁港，漁船回航後即刻開賣，形成了「現撈現煮」的文化。旗津的海產街自 1970 年代起便聞名全台，以豪邁的火候與極致的新鮮度著稱。
-                </div>
-            </div>
-        </div>
-        <h3>需要材料</h3>
-        <ul>
-            <li><strong>主要食材：</strong> 當季海瓜子、活蝦、蛤蜊或鮮魚。</li>
-            <li><strong>辛香料：</strong> 九層塔、蒜末、辣椒、薑絲。</li>
-            <li><strong>調味料：</strong> 米酒、醬油、少許烏醋。</li>
-        </ul>
-        <h3>料理方法</h3>
-        <ol>
-            <li>起油鍋，下大量蒜末與辣椒爆香，製造出強烈的「鑊氣」。</li>
-            <li>倒入新鮮的海鮮（如海瓜子），大火快速翻炒。</li>
-            <li>沿鍋邊淋入米酒與醬油提鮮，蓋上鍋蓋悶煮 30 秒至貝類完全張開。</li>
-            <li>最後撒入一大把九層塔，翻炒均勻後立即起鍋，確保海味Q彈不縮水。</li>
-        </ol>
-    </div>
-
-    <div id="food3" class="tab-content">
-        <div class="food-header">
-            <img src="003.jpg" alt="虱目魚">
-            <div class="food-info">
-                <h2>臺南：乾煎虱目魚肚</h2>
-                <div class="section-box">
-                    <strong>歷史故事：</strong>
-                    虱目魚又被稱為「國姓魚」，傳說鄭成功來台時，百姓獻上此魚，他問「什麼魚？」，百姓誤以為是賜名，故稱「虱目」。臺南是台灣虱目魚養殖的重鎮，已有三百多年歷史，是當地家家戶戶餐桌上的靈魂食材。
-                </div>
-            </div>
-        </div>
-        <h3>需要材料</h3>
-        <ul>
-            <li><strong>主要食材：</strong> 去刺虱目魚肚（帶油脂部分）。</li>
-            <li><strong>調味：</strong> 海鹽、白胡椒、檸檬片。</li>
-            <li><strong>煎油：</strong> 少許沙拉油。</li>
-        </ul>
-        <h3>料理方法</h3>
-        <ol>
-            <li>將魚肚洗淨擦乾水分（水分會影響酥度且易噴油）。</li>
-            <li>在魚皮側面均勻抹上一層薄薄的鹽。</li>
-            <li>熱鍋後放入少許油，將**魚皮朝下**放入鍋中，以中火慢煎。</li>
-            <li>待魚皮呈現焦香金黃色後翻面，利用魚肚本身的豐富油脂將肉質煎熟。</li>
-            <li>起鍋前撒上胡椒鹽，食用時擠上檸檬汁去油解膩。</li>
-        </ol>
-    </div>
-
-    <div id="food4" class="tab-content">
-        <div class="food-header">
-            <img src="004.jpg" alt="萬巒豬腳">
-            <div class="food-info">
-                <h2>屏東：萬巒豬腳</h2>
-                <div class="section-box">
-                    <strong>歷史故事：</strong>
-                    屏東萬巒豬腳的創始人為林海鴻先生，早期原本經營食堂，後改良豬腳製法而名聲大噪。1980 年代經蔣經國先生品嚐後大力推薦，從此萬巒與豬腳劃上等號。其特色在於使用獨門中藥材滷製，且口感Ｑ彈有勁。
-                </div>
-            </div>
-        </div>
-        <h3>需要材料</h3>
-        <ul>
-            <li><strong>主要食材：</strong> 豬前蹄（前肢較多筋，口感更Q）。</li>
-            <li><strong>滷汁材料：</strong> 醬油、冰糖、八角、桂皮、甘草。</li>
-            <li><strong>靈魂沾醬：</strong> 蒜末、醬油膏、砂糖。</li>
-        </ul>
-        <h3>料理方法</h3>
-        <ol>
-            <li>將豬腳徹底洗淨，汆燙去除腥味與雜質。</li>
-            <li>準備老滷汁，將中藥材與醬油、冰糖熬煮出香味。</li>
-            <li>將豬腳放入滷汁，大火煮開後轉小火燉煮約 1.5 小時，直至肉質軟透但皮不破。</li>
-            <li>最關鍵步驟：起鍋後立即進行**冷卻處理**（吹風或冰鎮），這能讓表皮收縮，產生極具彈性的口感。</li>
-            <li>切片後淋上特製蒜泥醬油膏食用。</li>
-        </ol>
-    </div>
-
-    <div id="food5" class="tab-content">
-        <div class="food-header">
-            <img src="005.jpg" alt="南部肉圓">
-            <div class="food-info">
-                <h2>高屏：清蒸肉圓</h2>
-                <div class="section-box">
-                    <strong>歷史故事：</strong>
-                    台灣肉圓南、北兩派風格迥異。南部（屏東、高雄）肉圓多以「清蒸」為主，強調皮的軟糯與肉的新鮮。相傳是早期農民為了節省食油，改以蒸煮方式製作，發展出與彰化炸肉圓截然不同的清爽風味。
-                </div>
-            </div>
-        </div>
-        <h3>需要材料</h3>
-        <ul>
-            <li><strong>外皮：</strong> 在來米粉、地瓜粉、水。</li>
-            <li><strong>內餡：</strong> 豬胛心肉塊、五香粉、醬油、筍絲。</li>
-            <li><strong>淋醬：</strong> 米漿、甜麵醬、蒜泥、香菜。</li>
-        </ul>
-        <h3>料理方法</h3>
-        <ol>
-            <li>**漿糊製作：** 將在來米粉與水攪拌加熱至半熟糊狀，冷卻後混入地瓜粉增加Q度。</li>
-            <li>**包製：** 取一小碗抹油，鋪上一層米漿，放上醃漬好的肉塊與筍絲，再蓋上一層米漿抹平。</li>
-            <li>**清蒸：** 放入蒸籠，以大火蒸約 15-20 分鐘直至外皮呈現半透明狀。</li>
-            <li>**淋醬：** 取出肉圓，淋上由米漿調製的甜鹹白醬與蒜泥，撒上香菜提味。</li>
-        </ol>
-    </div>
-</div>
-
-<script>
-    function openFood(evt, foodId) {
-        var i, tabcontent, tablinks;
-        // 隱藏所有分頁
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-            tabcontent[i].classList.remove("active");
-        }
-        // 取消所有按鈕的 active 狀態
-        tablinks = document.getElementsByClassName("tab-link");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        // 顯示當前分頁並標記按鈕
-        document.getElementById(foodId).style.display = "block";
-        document.getElementById(foodId).classList.add("active");
-        evt.currentTarget.className += " active";
-    }
-</script>
-
+    <a href="reflection.html" class="reflection-link">📝 點此查看：學習心得與總結</a>
 </body>
 </html>
